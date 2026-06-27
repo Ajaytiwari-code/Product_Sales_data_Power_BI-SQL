@@ -22,7 +22,7 @@ MiniProject/
 │   │   ├── sales_2016.csv           # Transactional sales data – 2016
 │   │   └── sales_2017.csv           # Transactional sales data – 2017
 │   └── sql/
-│       └── MiniProject2DatabaseQueries.txt   # DDL + seed SQL for Products table
+│       └── ProjectDatabaseQueries.txt   # DDL + seed SQL for Products table
 │
 ├── powerbi/
 │   └── SalesDashboard.pbix          # Power BI report file
@@ -143,24 +143,8 @@ VALUES
 (10, 1, 'Florescent Pink', 'Carlota',    29.95, 9.15);
 ```
 
-### 3. Remove Duplicates (optional clean-up)
-```sql
--- View duplicates
-SELECT ProductID, COUNT(*) 
-FROM Products 
-GROUP BY ProductID 
-HAVING COUNT(*) > 1;
 
--- Deduplicate using CTE
-WITH ranked AS (
-    SELECT *, ROW_NUMBER() OVER (PARTITION BY ProductID ORDER BY ProductID) AS rn
-    FROM Products
-)
-DELETE FROM Products
-WHERE ProductID IN (SELECT ProductID FROM ranked WHERE rn > 1);
-```
-
-### 4. Verify the Data
+### 3. Verify the Data
 ```sql
 SELECT * FROM Products ORDER BY ProductID;
 -- Expected: 13 rows total (11 unique products + 2 duplicate rows if not cleaned)
@@ -295,5 +279,4 @@ This project is created for educational purposes as part of a data analytics min
 
 ## 🙋 Author
 
-> Built with PostgreSQL, Power BI, and a passion for data.  
-> Feel free to fork, star ⭐, or raise issues!
+
