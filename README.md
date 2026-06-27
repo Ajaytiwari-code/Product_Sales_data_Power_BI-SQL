@@ -279,4 +279,7 @@ This project is created for educational purposes as part of a data analytics min
 
 ## 🙋 Author
 
+Ajay Tiwari 🎓 Computer Science & Engineering
 
+GitHub: @Ajaytiwari-code
+LinkedIn: ajay-tiwari-68a601291
